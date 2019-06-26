@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G1ANT.Addon.Ocr.Tesseract", "G1ANT.Addon.Ocr.Tesseract\G1ANT.Addon.Ocr.Tesseract.csproj", "{700E09BD-F443-4181-A42A-E9D098F652AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "G1ANT.Addon.Ocr.Tesseract.Tests", "G1ANT.Addon.Ocr.Tesseract.Tests\G1ANT.Addon.Ocr.Tesseract.Tests.csproj", "{3318187F-3198-4D74-B39E-7D86FAF06D97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AutomatedDebug|Any CPU = AutomatedDebug|Any CPU
+		Debug (.Net 4.0)|Any CPU = Debug (.Net 4.0)|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release (.Net 4.0)|Any CPU = Release (.Net 4.0)|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{700E09BD-F443-4181-A42A-E9D098F652AD}.AutomatedDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{700E09BD-F443-4181-A42A-E9D098F652AD}.AutomatedDebug|Any CPU.Build.0 = Debug|Any CPU
+		{700E09BD-F443-4181-A42A-E9D098F652AD}.Debug (.Net 4.0)|Any CPU.ActiveCfg = Debug|Any CPU
+		{700E09BD-F443-4181-A42A-E9D098F652AD}.Debug (.Net 4.0)|Any CPU.Build.0 = Debug|Any CPU
+		{700E09BD-F443-4181-A42A-E9D098F652AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{700E09BD-F443-4181-A42A-E9D098F652AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{700E09BD-F443-4181-A42A-E9D098F652AD}.Release (.Net 4.0)|Any CPU.ActiveCfg = Release|Any CPU
+		{700E09BD-F443-4181-A42A-E9D098F652AD}.Release (.Net 4.0)|Any CPU.Build.0 = Release|Any CPU
+		{700E09BD-F443-4181-A42A-E9D098F652AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{700E09BD-F443-4181-A42A-E9D098F652AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3318187F-3198-4D74-B39E-7D86FAF06D97}.AutomatedDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3318187F-3198-4D74-B39E-7D86FAF06D97}.AutomatedDebug|Any CPU.Build.0 = Debug|Any CPU
+		{3318187F-3198-4D74-B39E-7D86FAF06D97}.Debug (.Net 4.0)|Any CPU.ActiveCfg = Debug|Any CPU
+		{3318187F-3198-4D74-B39E-7D86FAF06D97}.Debug (.Net 4.0)|Any CPU.Build.0 = Debug|Any CPU
+		{3318187F-3198-4D74-B39E-7D86FAF06D97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3318187F-3198-4D74-B39E-7D86FAF06D97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3318187F-3198-4D74-B39E-7D86FAF06D97}.Release (.Net 4.0)|Any CPU.ActiveCfg = Release|Any CPU
+		{3318187F-3198-4D74-B39E-7D86FAF06D97}.Release (.Net 4.0)|Any CPU.Build.0 = Release|Any CPU
+		{3318187F-3198-4D74-B39E-7D86FAF06D97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3318187F-3198-4D74-B39E-7D86FAF06D97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26D1A627-AA6A-444B-956E-FA70B6D3CAB1}
+	EndGlobalSection
+EndGlobal
