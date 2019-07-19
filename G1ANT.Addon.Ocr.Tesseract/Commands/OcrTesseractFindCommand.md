@@ -8,12 +8,12 @@ ocrtesseract.find search ⟦text⟧ area ⟦rectangle⟧ relative ⟦bool⟧ lan
 
 ## Description
 
-This command finds a specified text on the active screen and returns its position in a [rectangle](https://manual.g1ant.com/link/G1ANT.Robot/G1ANT.Language/G1ANT.Language/Structures/RectangleStructure.md) format.
+This command finds a specified text on the active screen and returns its position in a [rectangle](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/RectangleStructure.md) format.
 
 | Argument | Type | Required | Default Value | Description |
 | -------- | ---- | -------- | ------------- | ----------- |
 |`search`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | yes |  | Text to be found on the screen (the fewer words, the better results) |
-| `area`         | [rectangle](https://manual.g1ant.com/link/G1ANT.Robot/G1ANT.Language/G1ANT.Language/Structures/RectangleStructure.md) | no | (equal to the current screen area) | Area on the screen to find text in, specified in `x0⫽y0⫽x1⫽y1` format, where `x0⫽y0` are the coordinates of the top left and `x1⫽y1` are the coordinates of the right bottom corner of the area |
+| `area`         | [rectangle](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/RectangleStructure.md) | no | (equal to the current screen area) | Area on the screen to find text in, specified in `x0⫽y0⫽x1⫽y1` format, where `x0⫽y0` are the coordinates of the top left and `x1⫽y1` are the coordinates of the right bottom corner of the area |
 |`relative`| [bool](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/BooleanStructure.md) | no | true | Determines whether the `area` argument is specified with absolute coordinates (top left corner of the screen) or refers to the currently opened window (its top left corner) |
 |`lang`| [text](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/TextStructure.md) | no | eng | Language to be used for text recognition |
 |`sensitivity`| [float](https://manual.g1ant.com/link/G1ANT.Language/G1ANT.Language/Structures/FloatStructure.md) | no | 2.0 | Factor of image zoom that allows better recognition of smaller text |
@@ -27,7 +27,7 @@ This command finds a specified text on the active screen and returns its positio
 
 For more information about `if`, `timeout`, `errorcall`, `errorjump`, `errormessage` and `errorresult` arguments, see [Common Arguments](https://manual.g1ant.com/link/G1ANT.Manual/appendices/common-arguments.md) page.
 
-> **Note:** In order to use the OCR Tesseract Addon, please follow [these steps](https://manual.g1ant.com/link/G1ANT.Manual/appendices/rdp-controller.md) to install the addon.
+> **Note:** In order to use the OCR Tesseract Addon, please follow [these steps](https://manual.g1ant.com/link/G1ANT.Manual/appendices/ocr-tesseract-addon.md) to install the addon.
 
 ## Example
 
