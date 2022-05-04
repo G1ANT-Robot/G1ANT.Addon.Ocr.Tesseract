@@ -24,9 +24,6 @@ namespace G1ANT.Addon.Ocr.Tesseract
             public RectangleStructure Area { get; set; } = new RectangleStructure(SystemInformation.VirtualScreen);
 
             [Argument]
-            public BooleanStructure Relative { get; set; } = new BooleanStructure(true);
-
-            [Argument]
             public VariableStructure Result { get; set; } = new VariableStructure("result");
 
             [Argument(Tooltip = "Language to be used for text recognition")]
@@ -50,31 +47,20 @@ namespace G1ANT.Addon.Ocr.Tesseract
                 throw new ArgumentException("Argument Area is not a valid rectangle");
 
             var loadedImage = new Bitmap(arguments.ImageFileName.Value);
-
-            if (arguments.Relative.Value)
-            {
-                var foregroundWindowRect = new RobotWin32.Rect();
-                RobotWin32.GetWindowRectangle(RobotWin32.GetForegroundWindow(), ref foregroundWindowRect);
-                rectangle = new Rectangle(rectangle.X + foregroundWindowRect.Left,
-                    rectangle.Y + foregroundWindowRect.Top,
-                    Math.Min(rectangle.Width, foregroundWindowRect.Right - foregroundWindowRect.Left) - rectangle.X,
-                    Math.Min(rectangle.Height, foregroundWindowRect.Bottom - foregroundWindowRect.Top) - rectangle.Y);
-            }
-            var partOfScreen = RobotWin32.GetPartOfScreen(rectangle);
-            var imgToParse = OcrOfflineHelper.RescaleImage(partOfScreen, arguments.Sensitivity.Value);
+            var imageToParse = OcrOfflineHelper.RescaleImage(loadedImage, arguments.Sensitivity.Value);
             var language = arguments.Language.Value;
             var dataPath = OcrOfflineHelper.GetResourcesFolder(language);
 
             try
             {
-                using (var tEngine = new TesseractEngine(dataPath, language, EngineMode.TesseractAndCube))
-                using (var img = PixConverter.ToPix(imgToParse))
-                using (var page = tEngine.Process(img))
+                using (var engine = new TesseractEngine(dataPath, language, EngineMode.TesseractAndCube))
+                using (var image = PixConverter.ToPix(imageToParse))
+                using (var page = engine.Process(image))
                 {
                     var text = page.GetText();
                     if (string.IsNullOrEmpty(text))
                         throw new NullReferenceException("Ocr was unable to find any text");
-                    Scripter.Variables.SetVariableValue(arguments.Result.Value, new Language.TextStructure(text));
+                    Scripter.Variables.SetVariableValue(arguments.Result.Value, new TextStructure(text));
                 }
             }
             catch (TesseractException)
