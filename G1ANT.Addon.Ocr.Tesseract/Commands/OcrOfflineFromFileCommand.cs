@@ -9,8 +9,9 @@
 */
 using G1ANT.Language;
 using System;
+using System.IO;
 using System.Drawing;
-using System.Windows.Forms;
+using System.Windows;
 using Tesseract;
 
 namespace G1ANT.Addon.Ocr.Tesseract
@@ -20,8 +21,8 @@ namespace G1ANT.Addon.Ocr.Tesseract
     {
         public class Arguments : CommandArguments
         {
-            [Argument]
-            public RectangleStructure Area { get; set; } = new RectangleStructure(SystemInformation.VirtualScreen);
+            [Argument(Tooltip = "Area to OCR, example 0⫽0⫽652⫽138, default value: full image size.")]
+            public RectangleStructure Area { get; set; }
 
             [Argument]
             public VariableStructure Result { get; set; } = new VariableStructure("result");
@@ -42,11 +43,23 @@ namespace G1ANT.Addon.Ocr.Tesseract
 
         public void Execute(Arguments arguments)
         {
-            var rectangle = arguments.Area.Value;
+            if (!File.Exists(arguments.ImageFileName.Value))
+                throw new ArgumentException($"Image file {arguments.ImageFileName.Value} doesn't exists.");
+
+            var loadedImage = new Bitmap(arguments.ImageFileName.Value);
+            var rectangle = new Rectangle(new Point(0, 0), loadedImage.Size);
+
+            if (arguments.Area != null)
+            {
+                if (rectangle.Contains(arguments.Area.Value))
+                    rectangle = arguments.Area.Value;
+                else
+                    throw new ArgumentException("Image doesn't contains area argument");
+            }
+
             if (!rectangle.IsValidRectangle())
                 throw new ArgumentException("Argument Area is not a valid rectangle");
 
-            var loadedImage = new Bitmap(arguments.ImageFileName.Value);
             var imageToParse = OcrOfflineHelper.RescaleImage(loadedImage, arguments.Sensitivity.Value);
             var language = arguments.Language.Value;
             var dataPath = OcrOfflineHelper.GetResourcesFolder(language);
