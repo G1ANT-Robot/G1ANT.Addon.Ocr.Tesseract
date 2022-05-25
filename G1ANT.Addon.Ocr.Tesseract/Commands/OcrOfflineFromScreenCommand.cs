@@ -35,9 +35,11 @@ namespace G1ANT.Addon.Ocr.Tesseract
             [Argument(Tooltip = "Factor of image zoom that allows better recognition of smaller text")]
             public FloatStructure Sensitivity { get; set; } = new FloatStructure(2.0);
         }
+
         public OcrOfflineFromScreenCommand(AbstractScripter scripter) : base(scripter)
         {
         }
+
         public void Execute(Arguments arguments)
         {
             var rectangle = arguments.Area.Value;
